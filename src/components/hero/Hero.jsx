@@ -9,8 +9,8 @@ const Hero = () => {
     <div className="flex gap-2 h-fit md:h-display w-[100vw]">
       <Sidebar />
       <Routes>
-        <Route path="/spotify-clone" element={<MainHero />} />
-        <Route path="/spotify-clone/album/:id" element={<DisplayAlbum />} />
+        <Route path="/" element={<MainHero />} />
+        <Route path="/album/:id" element={<DisplayAlbum />} />
       </Routes>
     </div>
   );

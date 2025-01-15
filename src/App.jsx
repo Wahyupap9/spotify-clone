@@ -17,6 +17,9 @@ function App() {
 
   return (
     <>
+      <head>
+        <title>Spotify-Clone</title>
+      </head>
       <div className="flex flex-col pb-20 md:p-0">
         <Header />
         <Hero />
