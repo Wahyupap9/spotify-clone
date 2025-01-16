@@ -8,7 +8,6 @@ import BarMusic from "./BarMusic";
 
 const MediaPlayer = ({ song }) => {
   const audioRef = useRef(null);
-
   const { isPlaying, play, pause, setAudioRef, skipFoward, skipBackward } =
     usePlayStore();
 

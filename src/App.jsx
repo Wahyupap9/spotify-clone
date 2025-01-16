@@ -8,6 +8,7 @@ function App() {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 640);
 
   useEffect(() => {
+    document.title = "Spotify Clone";
     const handleResize = () => {
       setIsMobile(window.innerWidth < 640);
     };
@@ -17,9 +18,6 @@ function App() {
 
   return (
     <>
-      <head>
-        <title>Spotify-Clone</title>
-      </head>
       <div className="flex flex-col pb-20 md:p-0">
         <Header />
         <Hero />

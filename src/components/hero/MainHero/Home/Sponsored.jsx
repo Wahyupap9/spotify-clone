@@ -5,7 +5,7 @@ import { BsThreeDots } from "react-icons/bs";
 const Sponsored = () => {
   const num = useMemo(() => {
     return Math.floor(Math.random() * albumsData.length);
-  });
+  }, []);
 
   const albumData = albumsData[num];
 
