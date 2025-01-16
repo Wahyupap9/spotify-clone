@@ -1,11 +1,13 @@
 import React from "react";
 
 const Buttons = () => {
-  <div className="py-6 flex gap-2">
-    <Button>All</Button>
-    <Button>Playlist</Button>
-    <Button>Podcast</Button>
-  </div>;
+  return (
+    <div className="py-6 flex gap-2">
+      <Button>All</Button>
+      <Button>Playlist</Button>
+      <Button>Podcast</Button>
+    </div>
+  );
 };
 
 const Button = ({ children }) => {

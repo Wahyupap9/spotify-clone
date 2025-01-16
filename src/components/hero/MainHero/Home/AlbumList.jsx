@@ -10,9 +10,9 @@ const AlbumList = () => {
     <>
       <Buttons />
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-2">
-        {albumsData.slice(0, 8).map((album) => {
-          <AlbumItem key={album.id} album={album} />;
-        })}
+        {albumsData.slice(0, 8).map((album) => (
+          <AlbumItem key={album.id} album={album} />
+        ))}
       </div>
     </>
   );
@@ -24,7 +24,6 @@ const AlbumItem = ({ album }) => {
   return (
     <div
       onClick={() => navigate(`/album/${album.id}`)}
-      key={album.id}
       className="flex text-[.85rem] lg:text-base h-12 bg-grayBg rounded-sm relative group hover:bg-grayText transition-all"
     >
       <button
