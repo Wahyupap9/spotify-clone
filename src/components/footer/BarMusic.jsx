@@ -4,7 +4,7 @@ import { useRef } from "react";
 import { useEffect } from "react";
 
 const BarMusic = () => {
-  const { time, setTime, audioRef } = usePlayStore();
+  const { time, setTime, audioRef, play } = usePlayStore();
   const seekBarRef = useRef(null);
   const barRef = useRef(null);
   const currentSecond = time.currentTime.second;
@@ -28,14 +28,35 @@ const BarMusic = () => {
     };
   }, [audioRef]);
 
+  function barFeature(e) {
+    const width = e.currentTarget.offsetWidth;
+    const offsetX = e.nativeEvent.offsetX;
+    audioRef.current.currentTime =
+      audioRef.current.duration * (offsetX / width);
+    seekBar.style.width = offsetX + "px";
+  }
+
   return (
     <div className="w-[80%] flex items-center gap-3 text-sm font-montserrat">
       <p>
         {time.currentTime.minute}.{currentSecond.toString().padStart(2, "0")}
       </p>
-      <div ref={barRef} className="w-full h-1 bg-white rounded-full">
+      <div
+        onClick={(e) => {
+          barFeature(e);
+          play();
+        }}
+        onScroll={(e) => {
+          barFeature(e);
+          play();
+        }}
+        ref={barRef}
+        id="bar"
+        className="w-full h-1 bg-white rounded-full"
+      >
         <div
           ref={seekBarRef}
+          id="seekBar"
           className="w-0 h-full bg-green rounded-full"
         ></div>
       </div>

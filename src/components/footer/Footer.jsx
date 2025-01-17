@@ -4,10 +4,19 @@ import { FaPause, FaPlay } from "react-icons/fa6";
 import MediaPlayer from "./MediaPlayer";
 import Settings from "./Settings";
 import usePlayStore from "../../../store/store";
+import { IoIosSkipBackward, IoIosSkipForward } from "react-icons/io";
 
 const Footer = () => {
-  const { song, isPlaying, play, pause, setAudioRef, skipFoward, setTime } =
-    usePlayStore();
+  const {
+    song,
+    isPlaying,
+    play,
+    pause,
+    setAudioRef,
+    skipFoward,
+    skipBackward,
+    setTime,
+  } = usePlayStore();
   const audioRef = useRef();
   const seekBg = useRef();
   const barRef = useRef();
@@ -24,11 +33,9 @@ const Footer = () => {
   }, []);
 
   useEffect(() => {
-    console.log(audioRef);
     setAudioRef(audioRef);
     return () => {
       setAudioRef({ current: null });
-      console.log(audioRef);
     };
   }, [setAudioRef]);
 
@@ -57,11 +64,21 @@ const Footer = () => {
         <div className="fixed grid bottom-0 bg-grayBg rounded-lg h-16 w-full">
           <div className="w-full pr-6 flex justify-self-center justify-between items-center">
             <SongInfo song={song} />
-            {!isPlaying ? (
-              <FaPlay onClick={play} className="text-white" />
-            ) : (
-              <FaPause onClick={pause} className="text-white" />
-            )}
+            <div className="flex gap-4 items-center">
+              <IoIosSkipBackward
+                onClick={skipBackward}
+                className="text-white text-xl"
+              />
+              {!isPlaying ? (
+                <FaPlay onClick={play} className="text-white" />
+              ) : (
+                <FaPause onClick={pause} className="text-white" />
+              )}
+              <IoIosSkipForward
+                onClick={skipFoward}
+                className="text-white text-xl"
+              />
+            </div>
           </div>
           <div
             ref={barRef}

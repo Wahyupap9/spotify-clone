@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import { FaShuffle } from "react-icons/fa6";
 import { IoIosSkipBackward, IoIosSkipForward } from "react-icons/io";
 import { FaPlay, FaPause } from "react-icons/fa";

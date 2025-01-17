@@ -1,6 +1,9 @@
 import { songsData } from "../src/assets/assets";
 
 export const play = async (set, get, status) => {
+  if (get().isPlaying) {
+    return;
+  }
   const isShuffle = get().isShuffle;
   const audioRef = get().audioRef;
 
