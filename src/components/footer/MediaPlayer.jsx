@@ -6,14 +6,8 @@ import { SlLoop } from "react-icons/sl";
 import usePlayStore from "../../../store/store";
 import BarMusic from "./BarMusic";
 
-const MediaPlayer = ({ song }) => {
-  const audioRef = useRef(null);
-  const { isPlaying, play, pause, setAudioRef, skipFoward, skipBackward } =
-    usePlayStore();
-
-  useEffect(() => {
-    setAudioRef(audioRef);
-  }, [setAudioRef]);
+const MediaPlayer = () => {
+  const { isPlaying, play, pause, skipFoward, skipBackward } = usePlayStore();
 
   return (
     <>
@@ -31,12 +25,6 @@ const MediaPlayer = ({ song }) => {
         </div>
         <BarMusic />
       </div>
-      <audio
-        ref={audioRef}
-        preload="auto"
-        src={song.file}
-        onEnded={skipFoward}
-      ></audio>
     </>
   );
 };

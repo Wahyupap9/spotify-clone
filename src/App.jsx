@@ -1,19 +1,11 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import Header from "./components/Header/Header";
-import FooterDesktop from "./components/footer/FooterDesktop";
-import FooterPhone from "./components/footer/FooterPhone";
 import Hero from "./components/hero/Hero";
+import Footer from "./components/footer/Footer";
 
 function App() {
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 640);
-
   useEffect(() => {
     document.title = "Spotify Clone";
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 640);
-    };
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   return (
@@ -22,7 +14,7 @@ function App() {
         <Header />
         <Hero />
       </div>
-      {!isMobile ? <FooterDesktop /> : <FooterPhone />}
+      <Footer />
     </>
   );
 }

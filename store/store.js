@@ -20,7 +20,7 @@ const usePlayStore = create((set, get) => ({
 
   setIsShuffle: (state) => set({ isShuffle: state }),
   setTime: (time) => set({ time }),
-  setAudioRef: (audio) => set({ audioRef: audio }),
+  setAudioRef: (ref) => set(() => ({ audioRef: ref })),
   play: (status) => play(set, get, status),
   pause: () => pause(set, get),
   skipFoward: () => skipFoward(set, get),
